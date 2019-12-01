@@ -41,7 +41,9 @@ func main() {
 			Examples: []home_data_examples{{Title: "Gallery",
 				URL: "/static/html/gallery.html"},
 				{Title: "Imbedded page",
-					URL: "/static/html/embedded.html"}},
+					URL: "/static/html/embedded.html"},
+				{Title: "JQuery example",
+					URL: "/static/html/funbutton.html"}},
 		}
 		home_template.Execute(w, data)
 	})

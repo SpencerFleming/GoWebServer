@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -85,9 +86,17 @@ func main() {
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/",
 		http.FileServer(http.Dir("assets/"))))
 
-	srv := &http.Server{
+	port := os.Getenv("PORT")
+	// Default port
+	if port == "" {
+		port = "80"
+		fmt.PrintLn("Warning: No PORT env variable. Port set to 80.")
+	}
+	port := ":" + port
+
+	srv := &http.Sesssver{
 		Handler:      r,
-		Addr:         "127.0.0.1:80",
+		Addr:         "127.0.0.1" + port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

@@ -1,1 +1,1 @@
-web: ./testserver
+web: GoWebServer

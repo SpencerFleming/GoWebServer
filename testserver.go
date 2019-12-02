@@ -90,11 +90,10 @@ func main() {
 	// Default port
 	if port == "" {
 		port = "80"
-		fmt.PrintLn("Warning: No PORT env variable. Port set to 80.")
 	}
-	port := ":" + port
+	port = ":" + port
 
-	srv := &http.Sesssver{
+	srv := &http.Server{
 		Handler:      r,
 		Addr:         "127.0.0.1" + port,
 		WriteTimeout: 15 * time.Second,

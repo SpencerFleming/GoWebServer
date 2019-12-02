@@ -1,1 +1,1 @@
-go build; testserver
+web: testserver

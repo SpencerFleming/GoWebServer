@@ -1,0 +1,12 @@
+{
+	"ImportPath": "github.com/spencerfleming/GoWebServer",
+	"GoVersion": "go1.13",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.7.3-14-g4de8a5a",
+			"Rev": "4de8a5a4d283677c69afa1a86a044c8451633a18"
+		}
+	]
+}

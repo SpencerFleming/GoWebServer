@@ -1,0 +1,15 @@
+<h1>{{.Title}}</h1>
+<p>{{.Description}}</p>
+<ul class=comments>
+{{range .Comments}}
+	<li><span class="Name">{{.Name}}:</span>
+		<span class="Comment">{{.Message}}</span></li>
+	{{end}}
+</ul>
+<form method="POST">
+	<label>Name</label><br>
+	<input class=textinput type="text" name="Name"><br>
+	<label>Comment</label><br>
+	<textarea name="Message"></textarea><br>
+	<input class=buttoninput type="submit">
+</form>	

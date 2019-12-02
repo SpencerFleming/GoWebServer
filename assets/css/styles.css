@@ -18,6 +18,19 @@ ul li {
 	display: inline;
 }
 
+ul li a:hover {
+	background-color: #67c5eb;
+}
+
+ul li a {
+	display: inline-block;
+	background-color: #1c86b0;
+	padding: 5px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
 ul img {
 	width: 150px;
 	border-radius 25%;
@@ -35,7 +48,7 @@ ul img {
 	border-style: dashed;
 	border-width: 2px;
 	border-color: #1c86b0;
-	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 #fundiv button {
@@ -48,4 +61,82 @@ ul img {
 
 	margin-top: 50%;
 	margin-left: 50%;
+}
+
+form {
+	display: block;
+	border-style: dashed;
+	border-color: #1c86b0;
+	border-width: 2px;
+	padding: 15px;
+	padding-right: 20px;
+}
+
+form label {
+	font-weight: bold;
+	display: inline-block;
+	padding-top: 5px;
+}
+
+.textinput {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+form textarea {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	resize: vertical;
+}
+
+.buttoninput {
+	display: inline-block;
+	border: none;
+	padding: 5px;
+	color: white;
+	font-weight: bold;
+	background-color: #1c86b0;
+}
+
+.buttoninput:hover {
+	background-color: #67c5eb;
+}
+
+.success {
+	display: block;
+	color: white;
+	background-color: #30cf7f;
+	border-radius: 5px;
+	font-weight: bold;
+	margin: 15px;
+	padding: 5px;
+}
+
+.comments {
+	display: block;
+	background-color: #FFD;
+	margin-bottom: 15px;
+	padding: 15px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #DDC;
+}
+
+.comments li {
+	display: block;
+	height: 12pt;
+	margin-bottom: 15px;
+}
+
+.Name {
+	font-weight: bold;
+	height: 12pt;
+	padding: 5px;
+	text-shadow: 2px 2px 3px #DB8;
+}
+
+.Comment {
+	display: inline-block;
 }

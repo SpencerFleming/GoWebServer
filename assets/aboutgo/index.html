@@ -33,7 +33,7 @@
                 Golang, or Go as it is more commonly referred to, was created by Robert Griesemer, 
                 Rob Pike, and Ken Thompson in 2007 while they worked at Google. Their goal with the 
                 language was to solve issues within Google with other languages at the time such
-                as "slowness and clumsiness" of software development. By doing so they kept the 
+                as "slowness and clumsiness" of software development. During the process they kept the 
                 idea that Go would be a programming language written by programmers for 
                 programmers. In essence, the language was what they claim to be the best elements
                 of C, Pascal, and Oberon. As a result of their efforts, their concepts and design
@@ -58,11 +58,6 @@
             </p>
             <h3>Why use Go?</h3>
             <p>
-                There are many benefits as to why one would like to use Go over other projects. 
-                Although some specifics are coveed elsewhere on this site, such as goroutines, 
-                there are some basic improvements that Go offers. 
-            </p>
-            <p>
                 <b>Go is fast and efficient!</b>
                 With many of the benefits of speed from C and C++, Go is the best of both worlds. 
                 The development pocess has been made easy as the syntax is extemely similar to 
@@ -72,8 +67,7 @@
             <p>
                 <b>Go has garbage collection!</b>
                 A highly attractive feature for Go is its implementation of a garbage collector. 
-                Seen as a downtrade for C and C++, the garbage collection sight for sore eyes for 
-                developers that have became accustomed to this feature. As an added bonus, the 
+                As an added bonus, the 
                 garbage collector is implemented to run concurrently along side the program. And 
                 with further features to limit how garbage collection is scheduled, it can keep 
                 programs with Go at a very low latency.
@@ -84,11 +78,11 @@
                 <b>Go has concurrency!</b>
                 Easily one of the main attractors of Go is it's rich support for concurrency. 
                 Through goroutines you are able to create multiple "green threads", threads that 
-                are controlled by the Go RTE rather than the operating system, like in JAVA. This 
-                gives the benefit of assigning multiple goroutines to a single OS thread 
+                are controlled by the Go runtime library rather than the operating system. 
+                These green threads are emulated multithreaded environments within user space which 
                 exponentially increasing the total number that can be run at any given time. 
                 Additionally, through channels goroutines can easily handle shared data without
-                the dangers of getting stuck and locking up.
+                the dangers of getting stuck and locking up or race conditions.
             </p>
             <p>
                 <b>Go has large company backings!</b>
@@ -122,15 +116,36 @@
             </p>
             <p>
                 <b>Go's error handling</b>
-                Some point of contention with Go is how it handles, or more better put how it <i>doesn't</i> 
-                handle errors. In Java errors are handled through try/catch blocks where the catch 
+                Some point of contention with Go is its lack of error handling.
+                In Java errors are handled through try/catch blocks where the catch 
                 section is executed in the event of an exception or error being thrown. Go treats 
                 errors as return values from functions and can range from improper arguments passed 
                 into the function to something going wrong within it. Using this format <code>retVal, err 
-                := function(args); </code> the error will be passed into <code>err</code> which then 
+                := function(args) </code> the error will be passed into <code>err</code> which then 
                 can be checked in an if/else statement. <code>err</code> is nil when the function 
                 did not throw an error.
             </p>
+            <h3>Helpful Resources</h3>
+            <p>
+                <b>Documentation:</b><br>
+                <a href='https://golang.org/doc/'>Golang Docs</a>
+            </p>
+            <p>
+                <b>Tutorials:</b><br>
+                <a href='https://www.youtube.com/watch?v=YS4e4q9oBaU'>YouTube</a><br>
+                <a href='https://learnxinyminutes.com/docs/go/'>Learn X in Y minutes</a><br>
+                <a href='https://gobyexample.com/'>Go by Example</a>
+            </p>
+            <p>
+                <b>Development:</b><br>
+                <a href='https://play.golang.org/p/MAohLsrz7JQ'>Go Playground</a><br>
+                <a href='https://www.jetbrains.com/go/'>GoLand</a><br>
+                <a href='https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go'>Visual Studio Code</a><br>
+                <a href='https://golang.org/dl/'>Go Compiler</a>
+            </p>
+            
+
+            
         </div>
             <div class='column'>
                 

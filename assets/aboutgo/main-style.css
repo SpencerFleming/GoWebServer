@@ -1,0 +1,83 @@
+/*Global Style sheet for project*/
+
+body {
+    list-style-type: none;
+    box-sizing: border-box;
+    margin: 0px;
+}
+nav {
+    width: 100%;
+    margin: auto;
+}
+nav ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+nav ul li {
+    float: left;
+  }
+  
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+nav ul li a:hover {
+    background-color: #bbb;
+  }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td.keytd {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+.main-content {
+    margin: 0 1em 0 1em;
+}
+
+.current {
+    background-color: #bbb;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 40%;
+    padding: 10px;
+}
+
+.code {
+    background: #ccc;
+}
+
+.inline-code {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+#var-dec-ex {
+    /*position: fixed;*/
+    margin-top: 550px;
+    display: block;
+    bottom: 0px;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Maps</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+
+<body>
+    <div class='row'>
+        <nav class='code'>
+            <ul>
+				<li><a href= '/'>Home</a></li>
+				<li><a href='index.html'>Go</a></li>
+                <li><a href= "goCompilers.html">Compilers</a></li>
+                <li><a href= "basic-syntax.html">Basic Syntax</a></li>
+                <li><a href= 'arrays-and-slices.html'>Arrays/Slices</a></li>
+                <li><a href= 'pointers-and-structs.html'>Struct/Pointers</a></li>
+                <li><a href= "goroutines-and-channels.html">Goroutines and Channels</a></li>
+                <li><a href= "maps.html" class='current'>Maps</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+            </ul>   
+        </nav>
+    </div>
+    <div class="main-content"></div>
+    <h1>Maps</h1>
+    <div class='row'>
+        <div class='column'>
+            <h3>Maps</h3>
+            <p>
+                Much like the common languages, Go offers some form of Hash Table so that it can allow for 
+                complex storage but at as close to constant data retrieval and insertion times. Maps are 
+                the data structure that essentially means Hash Table. Like channels maps are nil until 
+                initalized with the <code>make</code> command. In addition, they are built directly into Go 
+                therefore no import is necessary to use them.
+            </p>
+            <h3>Creating a map</h3>
+            <p>
+                You can create a map using the following syntax: <code> m := make(map[KeyVal]ValueType</code>
+            </p>
+            <p>
+                Here KeyVal represents the key that will be hashed to find the storage location within
+                the map and the ValueType repesents that value that will be associated with that key.
+                Additionally, instead of the local shorthand <code>:=</code> they can also be associated to 
+                the global <code>var</code> declaration.
+            </p>
+            <h3>Using a map</h3>
+            <p>
+                Using a map is very simple thanks to its built-in methods.
+            </p>
+            <p>Inserting/Overwriting: <code>mapName[keyVal] = value</code></p>
+            <p>Accessing Value of Key: <code>mapName[keyVal]</code></p>
+            <p>
+                When accessing a map, there is another option to get data. If you want to also get if the 
+                key was present in the map, you can use the optional <code>_,</code> before the variable
+                name. Take for instance <code>_, data := mapName["test"]</code>. If there is no key with 
+                the name "test" in this map then data will contain <code>false</code>, otherwise true.
+            </p>
+            <p>Delete Key/Value: <code>delete(mapName, keyVal)</code></p>
+            <p>
+                Immediate Declaration/Initialization: <code>mapName := map[string]int{"Buck": 1}"</code>
+                which creates a new map and adds value 1 at the hashed keyVal "Buck".
+            </p>
+            <p>Length (number of elements) of Map: <code>len(mapName)</code></p>
+            <h3>Example Output:</h3>
+            <div class='code'>
+                <figure>
+                    <pre>
+                            <code>
+map:  map[Key0:5 Key1:1 Key2:3 Key3:3 Key4:7]
+Value of Key1:  1
+Length of Map:  5
+map:  map[Key0:5 Key1:1 Key3:3 Key4:7]
+Key7 in map:  false
+                            </code>
+                        </pre>
+                                                                 
+                </figure>
+            </div>
+        </div>
+            <div class='column'>
+                <h3>Code Example</h3>
+                <img src="mapscode.png" width=350 height=650>
+            </div>
+        
+
+</body>
+
+</html>

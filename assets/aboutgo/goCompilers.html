@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>COMPILER</title>
+<link rel="stylesheet" href="main-style.css">
+</head>
+<body>
+<div class='row'>
+	<nav class='code'>
+		<ul>
+				<li><a href= '/'>Home</a></li>
+				<li><a href='index.html'>Go</a></li>
+                <li><a href= "goCompilers.html" class='current'>Compilers</a></li>
+                <li><a href= "basic-syntax.html">Basic Syntax</a></li>
+                <li><a href= 'arrays-and-slices.html'>Arrays/Slices</a></li>
+                <li><a href= 'pointers-and-structs.html'>Struct/Pointers</a></li>
+                <li><a href= "goroutines-and-channels.html">Goroutines and Channels</a></li>
+                <li><a href= "maps.html">Maps</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+		</ul>
+	</nav>
+</div>
+<div class="main-content"></div>
+<h1>Compilation in Go</h1>
+<div class="row">
+<div class="column">
+<p>Go is greatly influenced by C. It emphasizes on simplicity and safety.
+<ul>
+<li>Remote Package management.</li>
+<li>Built-in concurrency primitives.</li>
+<li>Type embedding instead of non-virtual inheritance.</li>
+<li>Toolchain which produces statically linked binaries without external dependencies.</li>
+</ul>
+</p>
+<p>Compile is invoked as 'go tool compile'. It compiles a single Go Package which 
+includes the files mentioned on the command line. It writes a single object file 
+named for the basename of the first source file with a .o suffix. The object file 
+is then compiled with other objects into a package archive or passed directly to 
+the linker ('go tool link').</p>
+<h3>Download</h3>
+You can get the Go compiler from <a href="golang.org">golang.org</a> to get started with go.
+<h3>Command Line Usage</h3>
+<code> go tool compile [flags] file... </code>
+<p>The specified files must be Go source files and all part of the same package. Same 
+compiler is used for all target operating systems and architectures. The GOOS and GOARCH 
+environment variables set the desired target.
+<h3>Compiler Directives</h3>
+The compiler in Go accepts the directives in form of comments. Directives require no space between the comment opening and the name of the directive.
+Examples of Line Directives:
+<ul>
+<li>//line :line</li>
+<li>//line :line:col</li>
+<li>//line filename:line</li>
+</ul>
+<h3>Why are Go compilers fast?</h3>
+<ul>
+<li>Go compiler has a simpler optimizer than C/C++ compilers.</li>
+<li>Unlike C++, Go has no templates and no inline functions.</li>
+<li>Go compiler generates low-level assembly code sooner and the optimizer works on the assembly code.</li>
+<li>Some C/C++ compilers generate instructions in text form, while the Go compiler generates instructions in binary form.</li>
+<li>A type-safe and statically-compiled language that uses seperate compilation with dependency and type checking across module boundaries to avoid unnecssary re-reading of header files and re-compiling of other modules.</li>
+</ul>
+</div>
+<div class="column">
+<h3>Code Example</h3>
+<img src="reverseGo.PNG" style="width:600px;height:400px;">
+<h3>Output</h3>
+<div class="code">
+<figure>
+<pre>
+<code>
+gfedcba
+</code>
+</pre>
+</figure>
+</div>
+</div>
+</div>
+</body>
+</html>

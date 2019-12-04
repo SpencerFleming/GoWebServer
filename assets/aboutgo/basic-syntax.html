@@ -1,0 +1,215 @@
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Basic Syntax</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+
+<body>
+    <div class='row'>
+        <nav class='code'>
+            <ul>
+				<li><a href= '/'>Home</a></li>
+				<li><a href='index.html'>Go</a></li>
+                <li><a href= "goCompilers.html">Compilers</a></li>
+                <li><a href= "basic-syntax.html" class='current'>Basic Syntax</a></li>
+                <li><a href= 'arrays-and-slices.html'>Arrays/Slices</a></li>
+                <li><a href= 'pointers-and-structs.html'>Struct/Pointers</a></li>
+                <li><a href= "goroutines-and-channels.html">Goroutines and Channels</a></li>
+                <li><a href= "maps.html">Maps</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+            </ul>   
+        </nav>
+    </div>
+    <div class='main-content'></div>
+    <h1>Basic Go Syntax</h1>
+    <div class='row'>
+        <div class='column'>
+            <h3>Line Separator</h3>
+            <p>Golang does not require the use of a special line separator like ";" in Java or C. Rather, a new line key 
+                serves as a statement terminator. This can be seen in the examples to the right.
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <h3>Comments</h3>
+            <p>
+                It is not surprising that Go allows two forms of comments. Go has inline comments notated by //.
+            </p> 
+            <code class='inline-code'>// this an inline comment</code>
+                
+
+            <p>
+                And Go has block comments denoted by /* to open and */ to close. 
+            </p>
+            <div class="inline-code">
+            
+                <code class='inline-code'>
+                    <pre>
+/* 
+ This is 
+ a block
+ comment.
+*/
+                    </pre></code>
+            
+                </div>
+            <h3>Identifiers</h3>
+            <p>
+                User defined identifers must begin with a letter or and underscore and then only contain letters, numbers and digits.
+
+                <p>identifier = letter { letter | unicode_digit }</p>
+            </p>
+            
+            <h3>Keywords</h3>
+            <p>The following table shows all 25 of the reserved words in Go. </p>
+            <table style="text-align:center" class="Keyword">
+                <tr>
+                    <td class="keytd">break</td>
+                    <td class="keytd">default</td>
+                    <td class="keytd">func</td>
+                    <td class="keytd">interface</td>
+                    <td class="keytd">select</td>
+                </tr>
+                <tr>
+                    <td class="keytd">case</td>
+                    <td class="keytd">defer</td>
+                    <td class="keytd">Go</td>
+                    <td class="keytd">map</td>
+                    <td class="keytd">Struct</td>
+                </tr>
+                <tr>
+                    <td class="keytd">chan</td>
+                    <td class="keytd">else</td>
+                    <td class="keytd">Goto</td>
+                    <td class="keytd">package</td>
+                    <td class="keytd">Switch</td>
+                </tr>
+                <tr>
+                    <td class="keytd">const</td>
+                    <td class="keytd">fallthrough</td>
+                    <td class="keytd">if</td>
+                    <td class="keytd">range</td>
+                    <td class="keytd">Type</td>
+                </tr>
+                <tr>
+                    <td class="keytd">continue</td>
+                    <td class="keytd">for</td>
+                    <td class="keytd">import</td>
+                    <td class="keytd">return</td>
+                    <td class="keytd">Var</td>
+                </tr>
+            </table>
+            
+            <h3>Variable Declaration</h3>
+            <p>
+                There are multiple ways to declare variables in go. These are all demonstrated in the Variable
+                Declaration Example to the right. Go is statically typed but feels dynamically typed since supplying
+                types to variable declarations are not required. The var key word is used to create a new variable.
+                The short assignment is shorthand to declare variables but can only be used within functions. Outside a
+                function the <code class="inline-code">:=</code> construct is not available.
+            </p>
+
+            <p>
+                Variables declared but not initialized with a particular value are given their zero value.
+            </p>
+            <p>
+                The zero value is: <code class="inline-code">0</code> for numeric types, <code class="inline-code">false</code>
+                for boolean types, and <code class="inline-code">""</code> the empty string for strings.
+            </p>
+            <h3>Variable Declaration Example Output</h3>
+            <div class='code'>
+                <figure>
+                    <pre>
+                            <code>
+                                First: Potato
+                                Second: Potato
+                                Third:  Spud  
+                                Fourth: Potato
+                            </code>
+                        </pre>
+                                                                 
+                </figure>
+            </div>
+            
+            </div>
+            <div class='column'>
+            <h3>Hello World Example</h3>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #999999; font-style: italic">// simple Hello World program in go</span>
+<span style="color: #999999; font-style: italic">// to run: go run HelloWorld.go</span>
+<span style="color: #6ab825; font-weight: bold">package</span> <span style="color: #d0d0d0">main</span>
+        
+<span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #ed9d13">&quot;fmt&quot;</span>
+        
+<span style="color: #6ab825; font-weight: bold">func</span> <span style="color: #d0d0d0">main()</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">fmt.Println(</span><span style="color: #ed9d13">&quot;Hello World!&quot;</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">}</span>
+</pre></td></tr></table></div>
+               
+            <div id="var-dec-ex">
+            <h3>Variable Declaration Example</h3>
+            <!-- HTML generated using hilite.me -->
+            <div  style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">package</span> <span style="color: #d0d0d0">main</span>
+
+<span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #ed9d13">&quot;fmt&quot;</span>
+
+<span style="color: #999999; font-style: italic">// Used var to declare and initialize word - type not required</span>
+<span style="color: #6ab825; font-weight: bold">var</span> <span style="color: #d0d0d0">word</span> <span style="color: #6ab825; font-weight: bold">string</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Potato&quot;</span>
+
+<span style="color: #6ab825; font-weight: bold">func</span> <span style="color: #d0d0d0">changeWord()</span> <span style="color: #d0d0d0">{</span>
+	<span style="color: #d0d0d0">fmt.Println(</span><span style="color: #ed9d13">&quot;Second:&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">word)</span>
+	<span style="color: #999999; font-style: italic">// short assignment - can only be used within functions and scope is contained to function</span>
+	<span style="color: #d0d0d0">word</span> <span style="color: #d0d0d0">:=</span> <span style="color: #ed9d13">&quot;Spud&quot;</span>
+	<span style="color: #d0d0d0">fmt.Println(</span><span style="color: #ed9d13">&quot;Third: &quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">word)</span>
+<span style="color: #d0d0d0">}</span>
+
+<span style="color: #6ab825; font-weight: bold">func</span> <span style="color: #d0d0d0">main()</span> <span style="color: #d0d0d0">{</span>
+	<span style="color: #d0d0d0">fmt.Println(</span><span style="color: #ed9d13">&quot;First:&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">word)</span>
+	<span style="color: #d0d0d0">changeWord()</span>
+
+	<span style="color: #999999; font-style: italic">// word&#39;s value returns to &quot;Potato&quot; after changeWord() ends.</span>
+	<span style="color: #d0d0d0">fmt.Println(</span><span style="color: #ed9d13">&quot;Fourth:&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">word)</span>
+<span style="color: #d0d0d0">}</span>
+</pre></td></tr></table></div>
+</div>
+
+
+</div> <!--End of main Content-->
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>IntroToGo</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+
+<body>
+    <div class='row'>
+        <nav class='code'>
+            <ul>
+				<li><a href= '/'>Home</a></li>
+		        <li><a href='index.html' class='current'>Go</a></li>
+                <li><a href= "goCompilers.html">Compilers</a></li>
+                <li><a href= "basic-syntax.html">Basic Syntax</a></li>
+                <li><a href= 'arrays-and-slices.html'>Arrays/Slices</a></li>
+                <li><a href= 'pointers-and-structs.html'>Struct/Pointers</a></li>
+                <li><a href= "goroutines-and-channels.html">Goroutines and Channels</a></li>
+                <li><a href= "maps.html">Maps</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+            </ul>   
+        </nav>
+    </div>
+    <div class="main-content"></div>
+    <img src= "GoLogo.png">
+    <div class='row'>
+        <div class='column'>
+            <h3>History of Go</h3>
+            <p>
+                Golang, or Go as it is more commonly referred to, was created by Robert Griesemer, 
+                Rob Pike, and Ken Thompson in 2007 while they worked at Google. Their goal with the 
+                language was to solve issues within Google with other languages at the time such
+                as "slowness and clumsiness" of software development. By doing so they kept the 
+                idea that Go would be a programming language written by programmers for 
+                programmers. In essence, the language was what they claim to be the best elements
+                of C, Pascal, and Oberon. As a result of their efforts, their concepts and design
+                was praised by companies for the safety and performance that Go offered.
+            </p>
+            <p>
+                Shortly after Go's founding, they decided that it would 
+                be of benefit to make the language open to the public to both help with 
+                development through open source and increase public exposure of Go. Since the 2009 
+                debut, there have been many modifications to the syntax and sematics of the 
+                language. These changes were the result of Google's attempts at removing elements 
+                of C that they thought by doing so would make the structure of Go programs even 
+                easier to use and design with.
+            </p>
+            <p>
+                Today, Go has became a real contender against the plethora of available languages 
+                and as time progresses more companies are starting to pick it up. For instance, 
+                in 2014 Dropbox adopted Go over its current Python infrastructure for the 
+                performance increase it brings to their critical back end systems which was a 
+                large step for Go as a whole. Since then, other companis have chosen to implement 
+                some elements of their software using Go with this number growing each year.
+            </p>
+            <h3>Why use Go?</h3>
+            <p>
+                There are many benefits as to why one would like to use Go over other projects. 
+                Although some specifics are coveed elsewhere on this site, such as goroutines, 
+                there are some basic improvements that Go offers. 
+            </p>
+            <p>
+                <b>Go is fast and efficient!</b>
+                With many of the benefits of speed from C and C++, Go is the best of both worlds. 
+                The development pocess has been made easy as the syntax is extemely similar to 
+                already popular C allowing for more people to have a good initial understanding 
+                of the language but with alot of the complexity from C simplified.
+            </p>
+            <p>
+                <b>Go has garbage collection!</b>
+                A highly attractive feature for Go is its implementation of a garbage collector. 
+                Seen as a downtrade for C and C++, the garbage collection sight for sore eyes for 
+                developers that have became accustomed to this feature. As an added bonus, the 
+                garbage collector is implemented to run concurrently along side the program. And 
+                with further features to limit how garbage collection is scheduled, it can keep 
+                programs with Go at a very low latency.
+            </p>
+            <p><code>Go garbage collection timing(map based): ~8ms</code></p>
+            <p><code>Java garbage collection timing(map based): ~153ms</code></p>
+            <p>
+                <b>Go has concurrency!</b>
+                Easily one of the main attractors of Go is it's rich support for concurrency. 
+                Through goroutines you are able to create multiple "green threads", threads that 
+                are controlled by the Go RTE rather than the operating system, like in JAVA. This 
+                gives the benefit of assigning multiple goroutines to a single OS thread 
+                exponentially increasing the total number that can be run at any given time. 
+                Additionally, through channels goroutines can easily handle shared data without
+                the dangers of getting stuck and locking up.
+            </p>
+            <p>
+                <b>Go has large company backings!</b>
+                A large boost to Go is its corporate backings already in its lifetime. There are 
+                already some major companies, not just including Google, that are utilizing go as 
+                part of their development process. With these big names picking it up, that might 
+                entice future adopters and developments for the language.
+            </p>
+            <p>
+                <b>Go is open source!</b>
+                When done correctly, open source development can be a wonderful thing for the 
+                product. Some of the benefits include reduction in cost of development, increased 
+                reliability due to more contributions that everyone can view, transparency of the 
+                product which is refreshing in this time for many users/developers, typically 
+                better security as more people from many backgrounds contribute their experiences 
+                in their code, and lastly a solid community of people all working to make Go 
+                better for everyone.
+            </p>
+
+            <h3>Cons of Go</h3>
+            <p>
+                <b>Go does not have generic types</b>
+                Something that some developers might claim as a step in the wrong direction with 
+                object oriented programming, Go does not have any type of generics like we are 
+                used to in Java. This can be toublesome when trying to develop algorithms that work 
+                with numerious different data types or creating objects that can represent different 
+                things yet still use the same methods and such. But despite this, there is a light at the 
+                end of a tunnel. Contributors of Go are currently working on a rough system for how Go 
+                might handle generics. This addition is slated for a future release once it has gotten 
+                the check and final appoval. 
+            </p>
+            <p>
+                <b>Go's error handling</b>
+                Some point of contention with Go is how it handles, or more better put how it <i>doesn't</i> 
+                handle errors. In Java errors are handled through try/catch blocks where the catch 
+                section is executed in the event of an exception or error being thrown. Go treats 
+                errors as return values from functions and can range from improper arguments passed 
+                into the function to something going wrong within it. Using this format <code>retVal, err 
+                := function(args); </code> the error will be passed into <code>err</code> which then 
+                can be checked in an if/else statement. <code>err</code> is nil when the function 
+                did not throw an error.
+            </p>
+        </div>
+            <div class='column'>
+                
+            </div>
+        
+
+</body>
+
+</html>

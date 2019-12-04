@@ -1,0 +1,156 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Goroutines and Channels</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+
+<body>
+    <div class='row'>
+        <nav class='code'>
+            <ul>
+				<li><a href= '/'>Home</a></li>
+		        <li><a href='index.html'>Go</a></li>
+                <li><a href= "goCompilers.html">Compilers</a></li>
+                <li><a href= "basic-syntax.html">Basic Syntax</a></li>
+                <li><a href= 'arrays-and-slices.html'>Arrays/Slices</a></li>
+                <li><a href= 'pointers-and-structs.html'>Struct/Pointers</a></li>
+                <li><a href= "goroutines-and-channels.html" class='current'>Goroutines and Channels</a></li>
+                <li><a href= "maps.html">Maps</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+            </ul>   
+        </nav>
+    </div>
+    <div class='main-content'></div>
+    <h1>Goroutines and Channels</h1>
+    <div class='row'>
+        <div class='column'>
+            <h3>Goroutines</h3>
+            <p>In Go, writing functions that can run in parallel is as easy as 
+               writing functions that run in a sequence. This makes taking full
+               advantage of a modern computer's processing power even easier.
+            </p>
+            <p>
+                Unlike Java, goroutines have growables segmented stacks which exponentially 
+                increase the number of goroutines a processor can handle at any one time. Also,
+                instead of using OS threads, goroutines are created within the user level.
+                This trick allows for many goroutines to exist as if they are running on multiple 
+                cores that the RTE scheduler handles CPU time allocation. The result of this difference 
+                allows there to be exponentially more goroutines at any given time.
+            </p>
+            <p>
+                When two goroutines need to communicate and share data, where this would be a perfect
+                setup for race conditions with traditional thread programming, they do so through
+                channels. These channels act as a pipeline of comunication but also handle
+                synchronizing that data automatically, greatly removing the possibility of race
+                conditions. The idea behind this was rather than have threads which <i>communicate
+                by sharing memory</i> they <i>share memory by communicating.</i> 
+            </p>
+            <p>
+                Goroutines strive to be as simple as possible, yet retain a quick processing speed
+                and minimal system impact. They achieve this by making its features require little
+                direction, such as not defining mutexes when sharing data through channels and
+                allowing the routines to dynamically increase their stack sizes as they determine
+                they need more space.
+            </p>
+
+            <h3>Creating a goroutine</h3>
+            <p>
+                Creating goroutines are <b>extremely</b> simple. All you need to do is invoke the
+                <code>'go'</code> keyword on a function. For example, with <code>go methodName()</code>
+                we are telling Go to create a goroutine for the methodName function that will be its
+                own process in a thread. At this point we have a goroutine running in parallel to the 
+                process that created it.
+            </p>
+            <p>
+                When the goroutine is finished processing its code, simply letting the function 
+                fall through will remove the goroutine and the garbage collector will free up the used 
+                memory.
+            </p>
+            <h3>Channels</h3>
+            <p> Channels are the backbone of the goroutine's funcationality. They work as a pipleline for
+                data from one goroutine to another but handle the race conditions internally which
+                substantionally reduces overhead by the developer without reducing effiency of the program.
+            </p>
+            <p>
+                When creating a channel, you must create a variable for that channel, which functions as
+                a pointer to that channel's location in memory, then invoke the keyword <code>make</code>
+                with parameters <code>chan</code> indicating that you wish to make a channel and the type
+                for that channel which controls the type of data that channel can send. In addition,
+                you can also add a buffer size to the channel controlling the amount of data that channel
+                can contain at any one time. By default, these channels can only contain a single item of 
+                its type. At face value this might not seem to be an issue but in practice most channels 
+                will be used to send multiple instances of that data type through the channel. This 
+                is the inherity bonus from buffering a channel. If you know that said channel will be 
+                expecting multiple values being sent at once, the buffer will tell the run time environment 
+                to make enough memory to support that, similar to an array or slice.
+            </p>
+            <p>
+                Muck like the switch statement, channels can use a similar type of control flow called
+                <code>select</code>. The select statment is utilized heavely when more than one channel
+                controls how a goroutine proceeds. The <code>select</code> statment handles the channels 
+                by choosing the how to proceed based on which channel gets information received first.
+                If channel 'a' get information received before channel 'b' then channel 'a' will be accepted
+                and the goroutine will proceed however it was designed to handle that situation. Although
+                the <code>select</code> statement handles many of the issues with multichannel funcatonality,
+                there is still some randomness. If both channels send receive data simultaneously then the 
+                <code>select</code> will choose at random which one to proceed with. A potential
+                problem if left unconsidered in design.
+            </p>
+            <h3>Creating a channel</h3>
+            <p>
+                Unbuffered channel: <code>messages := make(chan string)</code>
+            </p>
+            <p>
+                Buffered channel: <code>messages := make(chan string, 3)</code>
+            </p>
+            <p>
+                When finished with a channel, simply close the channel with the <code>close()</code> method
+                passing in the channel variable you wish to close. Example: <code>close(messages)</code>
+            </p>
+            <h3>More complex example</h3>
+            <img src="RandomAdder.png" width = 650>
+            <div class='code'>
+                    <figure>
+                        <pre>
+                            <code>
+Output:
+20 9 8 14 13 18 
+Channel was closed
+Final val:  82                                 
+                            </code>
+                        </pre>
+                    </figure>
+            </div>
+
+        </div>
+        <div class='column'>
+            <img src ="grcLogo.jpeg" width=385>
+            <h3>Code Example</h3>
+            <img src="GoroutinesAndChannelsCode.jpg" width=385 height=825>
+            <div class='code'>
+                    <figure>
+                        <pre>
+                            <code>
+Output:
+0
+1
+2
+3
+4
+5
+6
+<i>[enter]</i>                                  
+                            </code>
+                        </pre>
+                    </figure>
+            </div>
+        </div>
+
+
+</body>
+
+</html>

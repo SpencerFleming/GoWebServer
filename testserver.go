@@ -70,7 +70,9 @@ func main() {
 				{Title: "Imbedded page",
 					URL: "/static/html/embedded.html"},
 				{Title: "JQuery example",
-					URL: "/static/html/funbutton.html"}},
+					URL: "/static/html/funbutton.html"},
+				{Title: "About Go",
+					URL: "/static/aboutgo/"}},
 		}
 		home_template.Execute(w, data)
 

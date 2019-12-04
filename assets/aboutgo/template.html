@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Arrays and Slices</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+
+<body>
+    <div class='row'>
+        <nav class='code'>
+            <ul>
+ 				<li><a href= '/'>Home</a></li>
+                <li><a href='index.html'>Home</a></li>
+                <li><a href= "goCompilers.html">Compilers</a></li>
+                <li><a href= "hello-world-basic-syntax.html">Basic Syntax</a></li>
+                <li><a href= "goroutines-and-channels.html">Goroutines and Channels</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+                <li><a href= "tempalte.html" class='current'>Template</a></li>
+            </ul>   
+        </nav>
+    </div>
+    <div class='main-content'></div>
+    <h1>Main Title</h1>
+    <div class='row'>
+        <div class='column'>
+            <h3>Arrays</h3>
+            <p>Arrays in Go should seem fairly familar as they are similar to Java.</p>
+            <p>
+                Array definitions specify length and element type.
+                An array’s size is fixed so each element type and
+                length combination is its own data type.
+                <code>[4]int</code>
+                and
+                <code>[5]int</code>
+                are incompatible distinct types.
+            </p>
+            <p>
+                In Go a variable that represents an array contains the entire array opposed to the variable containing a pointer to
+                the first value. As such,
+                arrays are passed by value (a copy of the array). One can think of an array as a struct with indexed
+                fields.
+            </p>
+            <h3>What are Slices</h3>
+            <p>
+                Slices are “dynamic windows” into static arrays. A Slice represents a flexible-length array-like data
+                type that is a window into an array. One could view a slice as a struct with a pointer to the array
+                element where the slice starts. This means slice manipulations are inexpensive as you are basically just
+                changing pointer values. Warning: two overlapping slices point to the same place in memory so any change
+                to the array via a slice will be reflected in both slices. The good news is that go provides a
+                collection of built in slice functions to avoid common problems like this. The <code>copy()</code>
+                mechanism is one
+                that will address this issue.
+            </p>
+            <h3>Creating a slice</h3>
+            <p>
+                Slice literals are declared just like array literals without the size.
+                <code>Slice :=[]String{“a”,”b”,”c”}</code> or you can use the make function,
+                <code>s = make([]byte, 5, 5)</code>. You can also make a
+                slice by slicing an existing array. You can also create a slice from an existing array
+            </p>
+            <h3>Example Output:</h3>
+            <div class='code'>
+                <figure>
+                    <pre>
+                            <code>
+                                Code output can go here
+
+                            </code>
+                        </pre>
+                                                                 
+                </figure>
+            </div>
+            
+            </div>
+            <div class='column'>
+            <h3>Code Example</h3>
+
+</div> <!--End of main Content-->
+
+</body>
+
+</html>

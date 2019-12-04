@@ -1,0 +1,159 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pointers and Structs</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+
+<body>
+    <div class='row'>
+        <nav class='code'>
+            <ul>
+				<li><a href= '/'>Home</a></li>
+				<li><a href='index.html'>Go</a></li>
+                <li><a href= "goCompilers.html">Compilers</a></li>
+                <li><a href= "basic-syntax.html">Basic Syntax</a></li>
+                <li><a href= 'arrays-and-slices.html'>Arrays/Slices</a></li>
+                <li><a href= 'pointers-and-structs.html' class='current'>Struct/Pointers</a></li>
+                <li><a href= "goroutines-and-channels.html">Goroutines and Channels</a></li>
+                <li><a href= "maps.html">Maps</a></li>
+                <li><a href= "companies-that-use-go.html">Companies that use Go</a></li>
+            </ul>   
+        </nav>
+    </div>
+    <div class='main-content'></div>
+    <h1>Pointers and Structs</h1>
+    <div class='row'>
+        <div class='column'>
+            <h3>Structs in Go</h3>
+            <p>
+				Structs in go are quite similar to C. Each struct is a new type with members that can 
+				be given values individually (as show in example to right) or all at once.
+				To initialize all members together, the Syntax is: <code class="inline-code">var dog Dog = Dog{Name: "Kenai", Coat: "coat", Eyes: "blue", Breed: "Lab"}</code>
+				 Members can be accessed using the (dot) . notation.
+				
+			</p>
+			
+    
+            <h3>Making a Pointer to a struct</h3>
+            <p>
+                A pointer can be created to any variable in go. The general format for doing this
+                is: <code class="inline-code">ptr = &variableName</code>
+            </p>
+            <p>
+                Our example to the right shows the definition and initialization of a struct as well as creating a pointer 
+                to that struct. 
+			</p>
+			
+			<p>
+				Structs and Go's interfaces allow for a form of inheritance and polymorphism. 
+				Many people seem to love the setup and boast that is actually better than the 
+				classical inheritance found in Java.  Interfaces define what a certain type can do. 
+				If a type contains the specified methods in the interface, it can be considered the type 
+				of the interface. But you don’t explicitly say a data type implements an interface; rather, 
+				your data types must implement all of the methods that the interface defines. The other component 
+				necessary for inheritance is embedded structs. You can define one type as another type plus some 
+				additional features. A problem with the typical class structure is the fragile base problem. 
+				If you change the base, it often causes ripple effects from all the classes that inherit from it. 
+				Go’s embedded structs encourages composition – that is grouping by features rather than classes.  
+				“Go’s struct embedding is amazing. It disguises composition as inheritance and allows easily changing 
+				implementation details via its powerful interfaces.”
+			</p>
+            <h3>Example Output:</h3>
+            <div class='code'>
+                <figure>
+                    <pre>
+                          <code>
+		Honey is a brindle Pitbull with hazel eyes.
+
+		Buster is a brindle Pitbull with Brown eyes.     
+                                
+                            </code>
+                        </pre>
+                                                                 
+                </figure>
+            </div>
+            
+            </div>
+            <div class='column'>
+            <h3>Code Example</h3>
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">package</span> <span style="color: #d0d0d0">main</span>
+   
+   <span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #d0d0d0">(</span>
+	   <span style="color: #ed9d13">&quot;fmt&quot;</span>
+   <span style="color: #d0d0d0">)</span>
+   
+   <span style="color: #6ab825; font-weight: bold">type</span> <span style="color: #d0d0d0">Dog</span> <span style="color: #6ab825; font-weight: bold">struct</span> <span style="color: #d0d0d0">{</span>
+	   <span style="color: #d0d0d0">Name</span>  <span style="color: #6ab825; font-weight: bold">string</span>
+	   <span style="color: #d0d0d0">Coat</span>  <span style="color: #6ab825; font-weight: bold">string</span>
+	   <span style="color: #d0d0d0">Eyes</span>  <span style="color: #6ab825; font-weight: bold">string</span>
+	   <span style="color: #d0d0d0">Breed</span> <span style="color: #6ab825; font-weight: bold">string</span>
+   <span style="color: #d0d0d0">}</span>
+   
+   <span style="color: #999999; font-style: italic">// Parenthesis before toString indicates this function is a</span>
+   <span style="color: #999999; font-style: italic">// METHOD, the purpose of which is to operate on variables of</span>
+   <span style="color: #999999; font-style: italic">// type Dog</span>
+   <span style="color: #6ab825; font-weight: bold">func</span> <span style="color: #d0d0d0">(dog</span> <span style="color: #d0d0d0">*Dog)</span> <span style="color: #d0d0d0">toString()</span> <span style="color: #d0d0d0">{</span>
+	   <span style="color: #d0d0d0">fmt.Println((*dog).Name,</span> <span style="color: #ed9d13">&quot;is a&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">(*dog).Coat,</span> <span style="color: #d0d0d0">(*dog).Breed,</span> <span style="color: #ed9d13">&quot;with&quot;</span><span style="color: #d0d0d0">,</span>
+		   <span style="color: #d0d0d0">(*dog).Eyes,</span> <span style="color: #ed9d13">&quot;eyes.&quot;</span><span style="color: #d0d0d0">)</span>
+   <span style="color: #d0d0d0">}</span>
+   
+   <span style="color: #6ab825; font-weight: bold">func</span> <span style="color: #d0d0d0">main()</span> <span style="color: #d0d0d0">{</span>
+	   <span style="color: #6ab825; font-weight: bold">var</span> <span style="color: #d0d0d0">adog</span> <span style="color: #d0d0d0">Dog</span>
+	   <span style="color: #d0d0d0">adog.Name</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Honey&quot;</span>
+	   <span style="color: #d0d0d0">adog.Coat</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;brindle&quot;</span>
+	   <span style="color: #d0d0d0">adog.Eyes</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;hazel&quot;</span>
+	   <span style="color: #d0d0d0">adog.Breed</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Pitbull&quot;</span>
+	   
+	   <span style="color: #d0d0d0">dogPtr</span> <span style="color: #d0d0d0">:=</span> <span style="color: #d0d0d0">&amp;adog</span>
+	   
+	   <span style="color: #d0d0d0">adog.toString()</span>
+	   <span style="color: #d0d0d0">fmt.Println()</span>
+	   <span style="color: #d0d0d0">dogPtr.Name</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Buster&quot;</span>
+	   <span style="color: #d0d0d0">dogPtr.Eyes</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;Brown&quot;</span>
+	   <span style="color: #d0d0d0">dogPtr.toString()</span>
+   <span style="color: #d0d0d0">}</span>
+   </pre></td></tr></table></div>
+		 
+</div> <!--End of main Content-->
+</body>
+<html>
